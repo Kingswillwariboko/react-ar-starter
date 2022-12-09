@@ -1,5 +1,6 @@
 import React from "react"
 import chair from "./asset/chair-variants.glb"
+import modelviewer from "@google/model-viewer"
 import cardboard from "./asset/icons8-virtual-reality-40.png"
 
 
@@ -8,6 +9,7 @@ import "./App.scss"
 const App = () => {
   return(
     <main className="shop">
+
       <div className="shop__header">
         <h3>Kobiri</h3>
       </div>
