@@ -7,40 +7,7 @@
   pointer-events: none;
 }
 
-.shop{
-  text-align: center;
-  padding: 1rem;
+body{
 
-  &__header{
-    h3{
-      font-size: 2rem;
-    }
-  }
-
-  &__product{
-    width: 70%;
-    margin: 0 auto;
-    img{
-      width: 100%;
-    }
-
-    &-info{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      p{
-        font-size: 1.3rem;
-      }
-    }
-  }
-
-  &__ar{
-    width: 40%;
-    margin: 0 auto;
-    margin-bottom: 2rem;
-    img{
-      width: 50%;
-    }
-  }
+background: #F8F9FD;
 }
