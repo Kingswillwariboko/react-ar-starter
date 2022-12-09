@@ -1,5 +1,5 @@
 import React from "react"
-import chair from "./asset/chair.jpeg"
+import chair from "./asset/chair-variants.glb"
 import cardboard from "./asset/icons8-virtual-reality-40.png"
 
 
@@ -8,14 +8,14 @@ import "./App.scss"
 const App = () => {
   return(
     <main className="shop">
-
       <div className="shop__header">
         <h3>Kobiri</h3>
       </div>
 
       <div className="shop__product">
-        <img src={chair} alt=""/>
-
+      <model-viewer src={chair} alt="A 3D model of a steampunk camera" ar 
+                 ar-modes="webxr scene-viewer quick-look" environment-image="../assets/hdr/apartment.hdr" 
+                 camera-controls></model-viewer>
         <div className="shop__product-info">
           <p>Chair top 1</p>
 
