@@ -26,12 +26,7 @@ class ThreeScence extends Component {
           this.renderer.setSize( window.innerWidth, window.innerHeight );
     
           //Mesh
-          const geometry = new THREE.BoxBufferGeometry();
-          const material = new THREE.MeshStandardMaterial( { color: 0xFF0000 });
-  
-          this.mesh = new THREE.Mesh( geometry, material );
           
-          this.scene.add(this.mesh);
           
           
           this.renderer.setAnimationLoop(this.rende.bind(this));
@@ -46,7 +41,7 @@ class ThreeScence extends Component {
     }
 
     rende(){   
-        this.mesh.rotateY( 0.01 );
+        
         this.renderer.render( this.scene, this.camera );
     }
 

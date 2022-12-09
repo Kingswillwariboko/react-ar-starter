@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.shop{
+  text-align: center;
+  padding: 1rem;
+
+  &__header{
+    h3{
+      font-size: 2rem;
+    }
+  }
+
+  &__product{
+    width: 70%;
+    margin: 0 auto;
+    img{
+      width: 100%;
+    }
+
+    &-info{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      p{
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  &__ar{
+    width: 40%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    img{
+      width: 50%;
+    }
+  }
+}
