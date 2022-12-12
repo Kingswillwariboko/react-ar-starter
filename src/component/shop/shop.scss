@@ -35,5 +35,19 @@
             }
         }
     }
+
+    &__cartt{
+        margin: 0 auto;
+        text-align: center;
+
+        &-img{
+            background-color: #000000;
+            width: 20%;
+            padding: .5rem;
+            border-radius: .5rem;
+            margin: 1rem auto;
+        }
+
+    }
     
 }

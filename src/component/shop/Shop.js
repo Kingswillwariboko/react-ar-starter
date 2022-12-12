@@ -3,6 +3,7 @@ import vector from "../../assets/Vector.svg"
 import love from "../../assets/heart.svg"
 import chair from "../../assets/pngwing 1.svg"
 import arbutton from "../../assets/icon-park-outline_virtual-reality-glasses.svg"
+import cart from "../../assets/shopping-cart.svg"
 
 
 import "./shop.scss"
@@ -41,6 +42,14 @@ const Shop = () => {
                       both style and comfort. Available in a range of colors, 
                     the Casablanca sofa is sure to elevate your living space.</p>
             </div>
+        </div>
+
+        <div className='shop__cartt'>
+            <div className='shop__cartt-img'>
+                <img src={cart} alt="" />
+            </div>
+           
+            <p>Add to cart</p>
         </div>
 
     </div>
