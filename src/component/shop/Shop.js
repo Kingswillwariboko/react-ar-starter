@@ -51,7 +51,7 @@ const Shop = () => {
                           <Model />
                           <OrbitControls enablePan={true}
                                          enableZoom={true}
-                                         enableRotate={true}/>
+                                         enableRotate={true}/> 
                       </Suspense>
                       </XR>
                    </Canvas>
