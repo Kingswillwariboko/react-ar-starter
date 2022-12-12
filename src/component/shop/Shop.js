@@ -40,7 +40,7 @@ const Shop = () => {
 
         <div className='shop__product'>
         <Canvas>
-        
+            <XR>
                       <Suspense fallback={null}>
                           <ambientLight />
                           <spotLight intensity={0.9} 
@@ -53,6 +53,7 @@ const Shop = () => {
                                          enableZoom={true}
                                          enableRotate={true}/>
                       </Suspense>
+                      </XR>
                    </Canvas>
         </div>
 
