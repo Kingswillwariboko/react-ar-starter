@@ -1,4 +1,5 @@
-import React, {Suspense, useRef, useState} from 'react'
+import React, {Suspense, useRef,useState} from 'react'
+import { VRButton, Interactive, ARButton, XR, Controllers, Hands } from '@react-three/xr'
 import { Canvas} from '@react-three/fiber'
 import {OrbitControls, useGLTF} from '@react-three/drei'
 import vector from "../../assets/Vector.svg"
@@ -39,6 +40,7 @@ const Shop = () => {
 
         <div className='shop__product'>
         <Canvas>
+        
                       <Suspense fallback={null}>
                           <ambientLight />
                           <spotLight intensity={0.9} 
@@ -62,8 +64,8 @@ const Shop = () => {
                     <span>$299</span></p>
                 </div>
 
-                <div>
-                    <img src={arbutton} alt="" />
+                <div className='ar-button'>
+                    <ARButton className='ar' />
                 </div>
             </div>
  
