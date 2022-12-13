@@ -54,34 +54,21 @@ const Shop = () => {
   return (
     <>
      <div className='shop'>
-     {!inArMode  && <header className='shop__header'>
+    <header className='shop__header'>
             <img src={vector} alt="" />
 
             <p>Casablanca Furniture</p>
 
             <img src={love} alt="love" />
-        </header> }
+        </header> 
 
         <div className='shop__product'>
-        <Canvas>
-            <XR>
-                      <Suspense fallback={null}>
-                      <Controllers />
-                          <ambientLight />
-                          <spotLight intensity={0.9} 
-                                     angle={0.1} 
-                                     penumbra={1} 
-                                     position={[10,15,10]}
-                                     castShadow />
-                           <Interactive onUpdate={handleUpdatePosition}>
-                             <Shoe />
-                           </Interactive>
-                          <OrbitControls enablePan={true}
-                                         enableZoom={true}
-                                         enableRotate={true}/> 
-                      </Suspense>
-                      </XR>
-                   </Canvas> 
+
+
+<div> 
+    <iframe title="New swiftXR Project" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="fullscreen; autoplay; vr camera; midi; encrypted-media"  xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="100%" height="100%" src="https://wooded-need.swiftxr.app"> 
+    </iframe>
+</div>
         </div>
 
        {!inArMode &&  <div className='shop__info'>
