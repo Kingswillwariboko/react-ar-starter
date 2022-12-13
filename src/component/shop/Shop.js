@@ -40,6 +40,15 @@ const Shoe =() => {
 
 const Shop = () => {
     const[inArMode, setInArMode] = useState(false)
+    const [position, setPosition] = useState({ x: 0, y: 0, z: 0 });
+
+  const handleUpdatePosition = (event) => {
+    setPosition({
+      x: position.x + event.deltaX,
+      y: position.y + event.deltaY,
+      z: position.z + event.deltaZ,
+    });
+  };
 
     
   return (
@@ -55,7 +64,7 @@ const Shop = () => {
 
         <div className='shop__product'>
         <Canvas>
-            <XR>
+            <XR onUpdate={handleUpdatePosition}>
                       <Suspense fallback={null}>
                       <Controllers />
                           <ambientLight />
