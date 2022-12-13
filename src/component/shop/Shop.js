@@ -42,6 +42,7 @@ const Shop = () => {
         <Canvas>
             <XR>
                       <Suspense fallback={null}>
+                      <Controllers />
                           <ambientLight />
                           <spotLight intensity={0.9} 
                                      angle={0.1} 
