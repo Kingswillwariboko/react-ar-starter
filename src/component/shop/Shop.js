@@ -1,10 +1,9 @@
 import React, {Suspense, useRef,useState} from 'react'
-import { VRButton, Interactive, ARButton, XR, Controllers, Hands } from '@react-three/xr'
+import { VRButton, Interactive, ARButton, XR, Controllers, Hands,  useHitTest, } from '@react-three/xr'
 import { Canvas} from '@react-three/fiber'
 import {OrbitControls, useGLTF} from '@react-three/drei'
 import vector from "../../assets/Vector.svg"
 import love from "../../assets/heart.svg"
-import arbutton from "../../assets/icon-park-outline_virtual-reality-glasses.svg"
 import cart from "../../assets/shopping-cart.svg"
 import "./shop.scss"
 
@@ -29,7 +28,6 @@ function Model({ ...props }) {
 const Shop = () => {
     const[inArMode, setInArMode] = useState(false)
 
-
   return (
     <>
      <div className='shop'>
@@ -52,7 +50,9 @@ const Shop = () => {
                                      penumbra={1} 
                                      position={[10,15,10]}
                                      castShadow />
-                          <Model />
+                           <Interactive>
+                             <Model position={[0, 1.5, -0.5]} />
+                           </Interactive>
                           <OrbitControls enablePan={true}
                                          enableZoom={true}
                                          enableRotate={true}/> 
