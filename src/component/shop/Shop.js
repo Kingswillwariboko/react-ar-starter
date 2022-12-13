@@ -9,7 +9,6 @@ import cart from "../../assets/shopping-cart.svg"
 import "./shop.scss"
 
 
-
 function Model({ ...props }) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/shoe.gltf')
@@ -34,13 +33,13 @@ const Shop = () => {
   return (
     <>
      <div className='shop'>
-        <header className='shop__header'>
+     {!inArMode  && <header className='shop__header'>
             <img src={vector} alt="" />
 
             <p>Casablanca Furniture</p>
 
             <img src={love} alt="love" />
-        </header>
+        </header> }
 
         <div className='shop__product'>
         <Canvas>
