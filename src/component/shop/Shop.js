@@ -64,7 +64,7 @@ const Shop = () => {
 
         <div className='shop__product'>
         <Canvas>
-            <XR onUpdate={handleUpdatePosition}>
+            <XR>
                       <Suspense fallback={null}>
                       <Controllers />
                           <ambientLight />
@@ -73,7 +73,7 @@ const Shop = () => {
                                      penumbra={1} 
                                      position={[10,15,10]}
                                      castShadow />
-                           <Interactive>
+                           <Interactive onUpdate={handleUpdatePosition}>
                              <Shoe />
                            </Interactive>
                           <OrbitControls enablePan={true}
