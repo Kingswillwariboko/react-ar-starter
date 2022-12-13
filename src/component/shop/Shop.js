@@ -33,7 +33,7 @@ const Shop = () => {
 
   return (
     <>
-    (!inArMode && <div className='shop'>
+     <div className='shop'>
         <header className='shop__header'>
             <img src={vector} alt="" />
 
@@ -59,10 +59,10 @@ const Shop = () => {
                                          enableRotate={true}/> 
                       </Suspense>
                       </XR>
-                   </Canvas>
+                   </Canvas> 
         </div>
 
-        <div className='shop__info'>
+       {!inArMode &&  <div className='shop__info'>
             <div className='shop__info-header'>
                 <div>
                     <p>Casablanca Furniture <br />
@@ -77,17 +77,18 @@ const Shop = () => {
                       both style and comfort. Available in a range of colors, 
                     the Casablanca sofa is sure to elevate your living space.</p>
             </div>
-        </div>
+        </div>}
 
-        <div className='shop__cartt'>
+      {!inArMode && <div className='shop__cartt'>
             <div className='shop__cartt-img'>
                 <img src={cart} alt="" />
             </div>
            
             <p>Add to cart</p>
-        </div>
+        </div>}
 
-    </div>)
+
+    </div>
 
 <div className='ar-button'>
     <ARButton onClick={()=> setInArMode(!inArMode)}className='ar' />
