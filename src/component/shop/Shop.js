@@ -28,8 +28,12 @@ function Model({ ...props }) {
 }
 
 const Shop = () => {
+    const[inArMode, setInArMode] = useState(false)
+
+
   return (
-    <div className='shop'>
+    <>
+    (!inArMode && <div className='shop'>
         <header className='shop__header'>
             <img src={vector} alt="" />
 
@@ -65,10 +69,6 @@ const Shop = () => {
                     <span>Sofa</span> <br />
                     <span>$299</span></p>
                 </div>
-
-                <div className='ar-button'>
-                    <ARButton className='ar' />
-                </div>
             </div>
  
             <div className='shop__info-description'>
@@ -87,7 +87,12 @@ const Shop = () => {
             <p>Add to cart</p>
         </div>
 
-    </div>
+    </div>)
+
+<div className='ar-button'>
+    <ARButton onClick={()=> setInArMode(!inArMode)}className='ar' />
+</div>
+</>
   )
 }
 
