@@ -12,14 +12,10 @@ import "./shop.scss"
 function Model({ ...props }) {
   const group = useRef()
 
-
-  useXREvent('squeeze', (event) => {
-    // Update the position of the asset based on the controller's position
-    group.current.position.set(event.target.getPosition())
-
-    // Update the orientation of the asset based on the controller's orientation
-    group.current.quaternion.set(event.target.getOrientation())
-  }, { handedness: 'left' })
+  
+  useHitTest((hitMatrix) => {
+    hitMatrix.decompose(group.current.position, group.current.quaternion, group.current.scale)
+  })
 
 
   const { nodes, materials } = useGLTF('/shoe.gltf')
@@ -37,16 +33,15 @@ function Model({ ...props }) {
   )
 }
 
+
+const Shoe =() => {
+  return <Model  position={[0, 0, 0]} />
+}
+
 const Shop = () => {
     const[inArMode, setInArMode] = useState(false)
 
-    const boxRef = useRef()
-  useHitTest((hitMatrix) => {
-    hitMatrix.decompose(boxRef.current.position, boxRef.current.quaternion, boxRef.current.scale)
-  })
-
     
-
   return (
     <>
      <div className='shop'>
@@ -70,7 +65,7 @@ const Shop = () => {
                                      position={[10,15,10]}
                                      castShadow />
                            <Interactive>
-                             <Model ref={boxRef} position={[0, 0, 0]} />
+                             <Shoe />
                            </Interactive>
                           <OrbitControls enablePan={true}
                                          enableZoom={true}
