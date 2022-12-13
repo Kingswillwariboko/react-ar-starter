@@ -1,5 +1,6 @@
 import React, {Suspense, useRef,useState} from 'react'
-import { VRButton, Interactive, ARButton, XR, Controllers, Hands,  useHitTest, } from '@react-three/xr'
+import * as THREE from 'three'
+import { VRButton, Interactive, ARButton, XR, useXREvent, Controllers, Hands,  useHitTest, } from '@react-three/xr'
 import { Canvas} from '@react-three/fiber'
 import {OrbitControls, useGLTF} from '@react-three/drei'
 import vector from "../../assets/Vector.svg"
@@ -10,6 +11,17 @@ import "./shop.scss"
 
 function Model({ ...props }) {
   const group = useRef()
+
+
+  useXREvent('squeeze', (event) => {
+    // Update the position of the asset based on the controller's position
+    group.current.position.set(event.target.getPosition())
+
+    // Update the orientation of the asset based on the controller's orientation
+    group.current.quaternion.set(event.target.getOrientation())
+  }, { handedness: 'left' })
+
+
   const { nodes, materials } = useGLTF('/shoe.gltf')
   return (
     <group ref={group} {...props} dispose={null} scale={3}>
@@ -27,6 +39,13 @@ function Model({ ...props }) {
 
 const Shop = () => {
     const[inArMode, setInArMode] = useState(false)
+
+    const boxRef = useRef()
+  useHitTest((hitMatrix) => {
+    hitMatrix.decompose(boxRef.current.position, boxRef.current.quaternion, boxRef.current.scale)
+  })
+
+    
 
   return (
     <>
@@ -51,7 +70,7 @@ const Shop = () => {
                                      position={[10,15,10]}
                                      castShadow />
                            <Interactive>
-                             <Model position={[0, 1.5, -0.5]} />
+                             <Model ref={boxRef} position={[0, 0, 0]} />
                            </Interactive>
                           <OrbitControls enablePan={true}
                                          enableZoom={true}
