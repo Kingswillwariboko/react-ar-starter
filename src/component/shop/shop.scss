@@ -7,8 +7,14 @@
     }
 
     &__product{
-        width: 70%;
+        width: 80%;
         margin: 1rem auto;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+       
+
+
         img{
           width: 100%;
         }
@@ -52,15 +58,3 @@
     
 }
 
-.ar-button{
-    
-    width: 50%;
-    text-align: right;
-}
-.ar{
-    border: 2px solid green;
-    position: absolute;
-    top: 39%;
-    height: 9vh;
-    margin-left: 5rem;
-}
