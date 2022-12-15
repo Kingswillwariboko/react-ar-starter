@@ -6,6 +6,7 @@ import {OrbitControls, useGLTF} from '@react-three/drei'
 import vector from "../../assets/Vector.svg"
 import love from "../../assets/heart.svg"
 import cart from "../../assets/shopping-cart.svg"
+import chair from "../../assets/chair.glb"
 import "./shop.scss"
 
 
@@ -63,25 +64,14 @@ const Shop = () => {
         </header> }
 
         <div className='shop__product'>
-        <Canvas>
-            <XR>
-                      <Suspense fallback={null}>
-                      <Controllers />
-                          <ambientLight />
-                          <spotLight intensity={0.9} 
-                                     angle={0.1} 
-                                     penumbra={1} 
-                                     position={[10,15,10]}
-                                     castShadow />
-                           <Interactive onUpdate={handleUpdatePosition}>
-                             <Shoe />
-                           </Interactive>
-                          <OrbitControls enablePan={true}
-                                         enableZoom={true}
-                                         enableRotate={true}/> 
-                      </Suspense>
-                      </XR>
-                   </Canvas> 
+        <model-viewer src={chair} ar ar-modes="scene-viewer webxr quick-look" camera-controls poster="poster.webp" shadow-intensity="1">
+            <div className="progress-bar hide" slot="progress-bar">
+                  <div className="update-bar"></div>
+              </div>
+              
+              <div id="ar-prompt">
+            </div>
+       </model-viewer>
         </div>
 
        {!inArMode &&  <div className='shop__info'>
@@ -111,10 +101,6 @@ const Shop = () => {
 
 
     </div>
-
-<div className='ar-button'>
-    <ARButton onClick={()=> setInArMode(!inArMode)}className='ar' />
-</div>
 </>
   )
 }
