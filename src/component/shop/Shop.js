@@ -2,13 +2,8 @@ import React, {Suspense, useRef,useState} from 'react'
 import vector from "../../assets/Vector.svg"
 import love from "../../assets/heart.svg"
 import cart from "../../assets/shopping-cart.svg"
-import chair from "../../assets/chair.glb"
+import chair from "../../assets/new.glb"
 import "./shop.scss"
-
-
-
-
-
 
 
 const Shop = () => {
