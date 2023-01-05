@@ -27,11 +27,7 @@ const Shop = () => {
         </header> 
 
         <div className='shop__product'>
-          <model-viewer src={chair} ar ar-modes="scene-viewer webxr quick-look" camera-controls poster="poster.webp" shadow-intensity="1">
-              <div className="progress-bar hide" slot="progress-bar">
-                    <div className="update-bar"></div>
-                </div>
-                
+          <model-viewer src={chair} ar ar-modes="scene-viewer webxr quick-look"  xr-environment camera-controls poster="poster.webp" shadow-intensity="1">
                 <div id="ar-prompt">
               </div>
         </model-viewer>
