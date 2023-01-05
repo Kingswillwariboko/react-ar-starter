@@ -3,6 +3,7 @@ import vector from "../../assets/Vector.svg"
 import love from "../../assets/heart.svg"
 import cart from "../../assets/shopping-cart.svg"
 import chair from "../../assets/new.glb"
+import ar from "../../assets/augmented-reality.png"
 import "./shop.scss"
 
 
@@ -23,8 +24,9 @@ const Shop = () => {
 
         <div className='shop__product'>
           <model-viewer src={chair} ar ar-modes="scene-viewer webxr quick-look"  xr-environment camera-controls poster="poster.webp" shadow-intensity="1">
-                <div id="ar-prompt">
-              </div>
+          <button slot="ar-button" id="ar-button">
+              <img src={ar} alt="ar button" />
+          </button>
         </model-viewer>
         </div>
 
