@@ -8,7 +8,11 @@ import "./shop.scss"
 
 
 const Shop = () => {
-  
+  const arButtonRef = useRef()
+
+  const arHandler = () =>{
+    arButtonRef.current.click()
+  }
 
     
   return (
@@ -24,7 +28,7 @@ const Shop = () => {
 
         <div className='shop__product'>
           <model-viewer src={chair} ar ar-modes="scene-viewer webxr quick-look"  xr-environment camera-controls poster="poster.webp" shadow-intensity="1">
-          <button slot="ar-button" id="ar-button">
+          <button ref={arButtonRef} style={{ dispaly: "none"}}slot="ar-button" id="ar-button">
               <img src={ar} alt="ar button" />
           </button>
         </model-viewer>
@@ -37,6 +41,10 @@ const Shop = () => {
                     <span>Sofa</span> <br />
                     <span>$299</span></p>
                 </div>
+
+                <button onClick={arHandler}>
+                   <img src={ar} alt="ar button" />
+                </button>
             </div>
  
             <div className='shop__info-description'>
