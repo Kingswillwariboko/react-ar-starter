@@ -16,12 +16,7 @@
 
 
         #ar-button{
-           background-color: inherit;
-           border: 0;
-            width: 20%;
-            position: absolute;
-            top: 85%;
-            left: 80%;
+           display: none;
             img{
                 width: 90%;
             }
@@ -35,7 +30,24 @@
         &-header{
             display: flex;
             justify-content: space-between;
+            align-items: center;
             font-size: 25px;
+
+            .not{
+                width: 40%;
+                border: 1px solid black;
+                height: 50px;
+            }
+
+            button{
+                width: 30%;
+                background-color: inherit;
+                border: 0;
+
+                img{
+                    width: 80%;
+                }
+            }
         }
 
         &-description{

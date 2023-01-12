@@ -1,4 +1,4 @@
-import React, {Suspense, useRef,useState} from 'react'
+import React, {Suspense, useRef, useState, useEffect} from 'react'
 import vector from "../../assets/Vector.svg"
 import love from "../../assets/heart.svg"
 import cart from "../../assets/shopping-cart.svg"
@@ -8,11 +8,39 @@ import "./shop.scss"
 
 
 const Shop = () => {
-  // const arButtonRef = useRef()
+  const [arSupported, setArSupported] = useState(false);
+  const arButtonRef = useRef()
 
-  // const arHandler = () =>{
-  //   arButtonRef.current.click()
-  // }
+   const arHandler = () =>{
+    arButtonRef.current.click()
+  }
+
+
+  useEffect(() => {
+    if (navigator.xr) {
+      navigator.xr.isSessionSupported('immersive-ar').then(function (supported) {
+        setArSupported(supported);
+      });
+    }
+  }, []);
+
+
+
+  if (navigator.xr) {
+    console.log("This device supports AR in the model viewer.");
+    navigator.xr.isSessionSupported('immersive-ar').then(function (supported) {
+        if (supported) {
+            console.log("This device supports immersive AR sessions");
+        } else {
+            console.log("This device does not support immersive AR sessions");
+        }
+    });
+} else {
+    console.log("This device does not support AR in the model viewer.");
+}
+
+
+
 
     
   return (
@@ -28,7 +56,7 @@ const Shop = () => {
 
         <div className='shop__product'>
           <model-viewer src={chair} ar ar-modes="scene-viewer webxr quick-look"  xr-environment camera-controls poster="poster.webp" shadow-intensity="1">
-          <button slot="ar-button" id="ar-button">
+          <button ref={arButtonRef} slot="ar-button" id="ar-button">
               <img src={ar} alt="ar button" />
           </button>
         </model-viewer>
@@ -42,6 +70,12 @@ const Shop = () => {
                     <span>$299</span></p>
                 </div>
 
+            {arSupported ? (<button onClick={arHandler} slot="ar-button" id="ar-button">
+                <img src={ar} alt="ar button" />
+            </button>) : 
+            (<button className='not'>
+              ar not supported
+            </button>)}
                 
             </div>
  
