@@ -16,7 +16,12 @@
 
 
         #ar-button{
-           display: none;
+           background-color: inherit;
+           border: 0;
+            width: 20%;
+            position: absolute;
+            top: 85%;
+            left: 80%;
             img{
                 width: 90%;
             }
@@ -31,15 +36,6 @@
             display: flex;
             justify-content: space-between;
             font-size: 25px;
-
-            button{
-                width: 20%;
-                background-color: inherit;
-                border: 0;
-                img{
-                    width: 100%;
-                }
-            }
         }
 
         &-description{
