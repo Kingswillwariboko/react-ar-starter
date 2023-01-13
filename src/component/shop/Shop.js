@@ -71,12 +71,16 @@ const Shop = () => {
                     <span>$299</span></p>
                 </div>
 
+            <button onClick={arHandler} slot="ar-button" id="ar-button">
+                <img src={ar} alt="ar button" />
+            </button>
+{/* 
             {arSupported ? (<button onClick={arHandler} slot="ar-button" id="ar-button">
                 <img src={ar} alt="ar button" />
             </button>) : 
             (<button className='not'>
               ar not supported
-            </button>)}
+            </button>)} */}
                 
             </div>
  
