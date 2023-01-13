@@ -56,20 +56,14 @@ const Shop = () => {
         </header> 
 
         <div className='shop__product'>
-        <model-viewer src={chair} 
-                              alt="A 3D model of a chair" 
-                              poster="../assets/ar-shop/chair4.jpg"
-                              reveal="interaction"
-                              camera-controls
-                              ar ar-modes="webxr scene-viewer quick-look">
-                                <button ref={arButtonRef} slot="ar-button" id="ar-button">
+          <model-viewer src={chair} ar ar-modes="webxr scene-viewer quick-look"  xr-environment camera-controls poster="poster.webp" shadow-intensity="1">
+          <button ref={arButtonRef} slot="ar-button" id="ar-button">
               <img src={ar} alt="ar button" />
           </button>
-                              </model-viewer>
+        </model-viewer>
         </div>
 
        <div className='shop__info'>
-       
             <div className='shop__info-header'>
                 <div>
                     <p>Casablanca Furniture <br />
