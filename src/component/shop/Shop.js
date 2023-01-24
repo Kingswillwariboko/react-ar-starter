@@ -8,9 +8,14 @@ import "./shop.scss"
 
 
 const Shop = () => {
-  const [arSupported, setArSupported] = useState(false);
+  const [error, setError] = useState(null);
+  const [arStatus, setARStatus] = useState(null);
   const arButtonRef = useRef()
 
+
+  const handleARError = (event) => {
+    setError(event.detail);
+  }
    const arHandler = () =>{
     arButtonRef.current.click()
     console.log('clicked')
@@ -18,29 +23,13 @@ const Shop = () => {
 
 
   useEffect(() => {
-    if (navigator.xr) {
-      navigator.xr.isSessionSupported('immersive-ar').then(function (supported) {
-        setArSupported(supported);
-      });
-    }
+    const modelViewer = document.querySelector('model-viewer');
+    setARStatus(modelViewer.getAttribute('ar-status'));
   }, []);
 
+  console.log(error)
 
-
-  if (navigator.xr) {
-    console.log("This device supports AR in the model viewer.");
-    navigator.xr.isSessionSupported('immersive-ar').then(function (supported) {
-        if (supported) {
-            console.log("This device supports immersive AR sessions");
-        } else {
-            console.log("This device does not support immersive AR sessions");
-        }
-    });
-} else {
-    console.log("This device does not support AR in the model viewer.");
-}
-
-
+ 
 
 
     
@@ -56,16 +45,22 @@ const Shop = () => {
         </header> 
 
         <div className='shop__product'>
-          <model-viewer src={chair} ar ar-modes="webxr scene-viewer quick-look"  xr-environment camera-controls poster="poster.webp" shadow-intensity="1">
-          <button ref={arButtonRef} slot="ar-button" id="ar-button">
+          <model-viewer  src={chair} ar ar-modes="webxr scene-viewer quick-look" light-intensity="1" xr-environment camera-controls poster="poster.webp" shadow-intensity="1" >
+          <button onError={handleARError} ref={arButtonRef} slot="ar-button" id="ar-button">
               <img src={ar} alt="ar button" />
           </button>
+
+          {arStatus === 'unsupported' && <p>AR is not supported on this device.</p>}
+     
         </model-viewer>
         </div>
+
+        
 
        <div className='shop__info'>
             <div className='shop__info-header'>
                 <div>
+                {error && <p>An error occurred while loading AR: {error.message}</p>}
                     <p>Casablanca Furniture <br />
                     <span>Sofa</span> <br />
                     <span>$299</span></p>
@@ -81,6 +76,11 @@ const Shop = () => {
             (<button className='not'>
               ar not supported
             </button>)} */}
+
+
+{arStatus === 'unavailable' && <p>AR is not currently available.</p>}
+      {arStatus === 'ready' && <p>AR is ready to use.</p>}
+      {arStatus === 'active' && <p>AR is currently active.</p>}
                 
             </div>
  
