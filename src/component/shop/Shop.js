@@ -46,7 +46,7 @@ const Shop = () => {
         </header> 
 
         <div className='shop__product'>
-          <model-viewer  src={chair} ios-src={usdz} ar ar-modes="webxr scene-viewer quick-look" xr-environment camera-controls poster="poster.webp" shadow-intensity="1" >
+          <model-viewer  src={chair}  ar ar-modes="webxr scene-viewer quick-look" xr-environment camera-controls poster="poster.webp" shadow-intensity="1" >
           <button onError={handleARError} ref={arButtonRef} slot="ar-button" id="ar-button">
               <img src={ar} alt="ar button" />
           </button>
