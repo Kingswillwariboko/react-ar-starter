@@ -2,7 +2,8 @@ import React, {Suspense, useRef, useState, useEffect} from 'react'
 import vector from "../../assets/Vector.svg"
 import love from "../../assets/heart.svg"
 import cart from "../../assets/shopping-cart.svg"
-import chair from "../../assets/ImageToStl.com_kobiri go classic .glb"
+import chair from "../../assets/new.glb"
+import usdz from "../../assets/new.usdz"
 import ar from "../../assets/augmented-reality.png"
 import "./shop.scss"
 
@@ -45,13 +46,12 @@ const Shop = () => {
         </header> 
 
         <div className='shop__product'>
-          <model-viewer  src={chair} ar ar-modes="webxr scene-viewer quick-look" xr-environment camera-controls poster="poster.webp" shadow-intensity="1" >
-          <button onError={handleARError} ref={arButtonRef} slot="ar-button" id="ar-button">
-              <img src={ar} alt="ar button" />
-          </button>
+          <model-viewer  src={chair} ios-src={usdz} ar ar-modes="webxr scene-viewer quick-look" xr-environment camera-controls poster="poster.webp" shadow-intensity="1" >
+            <button onError={handleARError} ref={arButtonRef} slot="ar-button" id="ar-button">
+                <img src={ar} alt="ar button" />
+            </button>
 
           {arStatus === 'unsupported' && <p>AR is not supported on this device.</p>}
-     
         </model-viewer>
         </div>
 
