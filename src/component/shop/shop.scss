@@ -16,9 +16,12 @@
 
 
         #ar-button{
-           display: none;
+            border: 0;
+                background-color: inherit;
+                width: 20%;
             img{
-                width: 90%;
+                width: 70%;
+                
             }
         }
     }

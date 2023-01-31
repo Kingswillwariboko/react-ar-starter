@@ -11,16 +11,9 @@ import "./shop.scss"
 const Shop = () => {
   const [error, setError] = useState(null);
   const [arStatus, setARStatus] = useState(null);
-  const arButtonRef = useRef()
 
 
-  const handleARError = (event) => {
-    setError(event.detail);
-  }
-   const arHandler = () =>{
-    arButtonRef.current.click()
-    console.log('clicked')
-  }
+
 
 
   useEffect(() => {
@@ -47,11 +40,9 @@ const Shop = () => {
 
         <div className='shop__product'>
           <model-viewer  src={chair} ios-src={usdz} ar ar-modes="webxr scene-viewer quick-look" xr-environment camera-controls poster="poster.webp" shadow-intensity="1" >
-            <button onError={handleARError} ref={arButtonRef} slot="ar-button" id="ar-button">
+            <button  slot="ar-button" id="ar-button">
                 <img src={ar} alt="ar button" />
             </button>
-
-          {arStatus === 'unsupported' && <p>AR is not supported on this device.</p>}
         </model-viewer>
         </div>
 
@@ -65,10 +56,6 @@ const Shop = () => {
                     <span>Sofa</span> <br />
                     <span>$299</span></p>
                 </div>
-
-            <button onClick={arHandler} slot="ar-button" id="ar-button">
-                <img src={ar} alt="ar button" />
-            </button>
 {/* 
             {arSupported ? (<button onClick={arHandler} slot="ar-button" id="ar-button">
                 <img src={ar} alt="ar button" />
