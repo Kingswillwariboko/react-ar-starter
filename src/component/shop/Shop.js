@@ -2,31 +2,13 @@ import React, {Suspense, useRef, useState, useEffect} from 'react'
 import vector from "../../assets/Vector.svg"
 import love from "../../assets/heart.svg"
 import cart from "../../assets/shopping-cart.svg"
-import chair from "../../assets/new.glb"
-import usdz from "../../assets/new.usdz"
+import chair from "../../assets/chair.glb"
 import ar from "../../assets/augmented-reality.png"
 import "./shop.scss"
 
 
 const Shop = () => {
-  const [error, setError] = useState(null);
-  const [arStatus, setARStatus] = useState(null);
-
-
-
-
-
-  useEffect(() => {
-    const modelViewer = document.querySelector('model-viewer');
-    setARStatus(modelViewer.getAttribute('ar-status'));
-  }, []);
-
-  console.log(error)
-
  
-
-
-    
   return (
     <>
      <div className='shop'>
@@ -39,7 +21,7 @@ const Shop = () => {
         </header> 
 
         <div className='shop__product'>
-          <model-viewer  src={chair} ios-src={usdz} ar ar-modes="webxr scene-viewer quick-look" xr-environment camera-controls poster="poster.webp" shadow-intensity="1" >
+          <model-viewer  src={chair} ar ar-modes="webxr scene-viewer quick-look" xr-environment camera-controls poster="poster.webp" shadow-intensity="1" >
             <button  slot="ar-button" id="ar-button">
                 <img src={ar} alt="ar button" />
             </button>
@@ -51,7 +33,6 @@ const Shop = () => {
        <div className='shop__info'>
             <div className='shop__info-header'>
                 <div>
-                {error && <p>An error occurred while loading AR: {error.message}</p>}
                     <p>Casablanca Furniture <br />
                     <span>Sofa</span> <br />
                     <span>$299</span></p>
@@ -63,11 +44,6 @@ const Shop = () => {
             (<button className='not'>
               ar not supported
             </button>)} */}
-
-
-{arStatus === 'unavailable' && <p>AR is not currently available.</p>}
-      {arStatus === 'ready' && <p>AR is ready to use.</p>}
-      {arStatus === 'active' && <p>AR is currently active.</p>}
                 
             </div>
  
