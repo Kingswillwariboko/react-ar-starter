@@ -14,9 +14,7 @@ const Shop = () => {
      <div className='shop'>
     <header className='shop__header'>
             <img src={vector} alt="" />
-
             <p>Casablanca Furniture</p>
-
             <img src={love} alt="love" />
         </header> 
 
@@ -32,7 +30,7 @@ const Shop = () => {
                 <div>
                     <p>Casablanca Furniture <br />
                     <span>Sofa</span> <br />
-                    <span>$299</span></p>
+                    <span>$499</span></p>
                 </div>
 {/* 
             {arSupported ? (<button onClick={arHandler} slot="ar-button" id="ar-button">
