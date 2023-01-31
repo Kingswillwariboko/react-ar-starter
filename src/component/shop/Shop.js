@@ -1,4 +1,4 @@
-import React, {Suspense, useRef, useState, useEffect} from 'react'
+import React from 'react'
 import vector from "../../assets/Vector.svg"
 import love from "../../assets/heart.svg"
 import cart from "../../assets/shopping-cart.svg"
@@ -27,9 +27,6 @@ const Shop = () => {
             </button>
         </model-viewer>
         </div>
-
-        
-
        <div className='shop__info'>
             <div className='shop__info-header'>
                 <div>
