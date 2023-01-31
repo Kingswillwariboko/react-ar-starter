@@ -32,14 +32,7 @@ const Shop = () => {
                     <span>Sofa</span> <br />
                     <span>$499</span></p>
                 </div>
-{/* 
-            {arSupported ? (<button onClick={arHandler} slot="ar-button" id="ar-button">
-                <img src={ar} alt="ar button" />
-            </button>) : 
-            (<button className='not'>
-              ar not supported
-            </button>)} */}
-                
+
             </div>
  
             <div className='shop__info-description'>
